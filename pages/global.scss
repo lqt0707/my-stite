@@ -4,7 +4,7 @@ html[data-theme="dark"] {
   --primary-color: #ffffff;
   --primary-background-color: rgba(14, 14, 14, 1);
   --footer-background-color: rgba(36, 36, 36, 1);
-  --navbar-background-color: rgba(0, 0, 0, 0.5);
+  --navbar-background-color: rgba(0, 0, 0, 1);
   --secondary-color: rgba(255, 255, 255, 0.5);
   --link-color: #34a8eb;
   --semi-page-active-color: rgb(84, 169, 255);
@@ -44,7 +44,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   color: var(--primary-color);
   overflow: hidden;
 }
@@ -58,7 +58,15 @@ a {
   box-sizing: border-box;
 }
 
+// 移动端遮罩层
 .forbidScroll {
+  height: 100vh;
+  overflow: hidden;
+}
+
+// pc端遮罩层
+.pcForbidScroll {
+  width: calc(100% - 1rem); // 滚动栏假区域
   height: 100vh;
   overflow: hidden;
 }
