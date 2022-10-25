@@ -7,7 +7,7 @@ import { ILayoutProps, Layout } from "components/layout";
 import { LanguageContextProvider } from "stores/language";
 import { ThemeContextProvider } from "stores/theme";
 import { UserAgentProvider } from "stores/userAgent";
-import { getIsMobile, LOCALDOMAIN } from "utils";
+import { getIsMobile, getIsSupportWebp, LOCALDOMAIN } from "utils";
 
 export interface IComponentProps {
   isMobile?: boolean;
@@ -67,11 +67,8 @@ MyApp.getInitialProps = async (context: AppContext) => {
     ...pageProps,
     ...data,
     isMobile: getIsMobile(context),
-    // isSupportWebp: getIsSupportWebp(context),
+    isSupportWebp: getIsSupportWebp(context),
   };
 };
 
 export default MyApp;
-// function getIsSupportWebp(context: AppContext) {
-//   throw new Error("Function not implemented.");
-// }

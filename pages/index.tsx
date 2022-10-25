@@ -9,6 +9,8 @@ import { ThemeContext } from "stores/theme";
 import { LOCALDOMAIN } from "utils";
 import { IArticleIntro } from "./api/articleIntro";
 import styles from "./index.module.scss";
+import cName from "classnames";
+import { IComponentProps } from "./_app";
 
 interface IProps {
   title: string;
@@ -23,7 +25,12 @@ interface IProps {
   };
 }
 
-const Home: NextPage<IProps> = ({ title, description, articles }) => {
+const Home: NextPage<IProps & IComponentProps> = ({
+  title,
+  description,
+  articles,
+  isSupportWebp,
+}) => {
   const [content, setContent] = useState(articles);
   const mainRef = useRef<HTMLDivElement>(null);
   const { theme } = useContext(ThemeContext);
@@ -41,6 +48,12 @@ const Home: NextPage<IProps> = ({ title, description, articles }) => {
         className={classNames([styles.main, styles.withAnimation])}
         ref={mainRef}
       >
+        <div
+          className={cName({
+            [styles.header]: true,
+            [styles.headerWebp]: isSupportWebp,
+          })}
+        ></div>
         <h1 className={styles.title}>{title}</h1>
 
         <p className={styles.description}>{description}</p>
