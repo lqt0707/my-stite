@@ -13,6 +13,6 @@ module.exports = semi({
     return config;
   },
   images: {
-    domains: ["123.60.111.46", "127.0.0.1"],
+    domains: ["127.0.0.1"],
   },
 });
